@@ -52,16 +52,10 @@
                                 <h3 class="box-title">Settings</h3>
                             </div><!-- /.box-header -->
                             <div class="box-body">
-                                <label for="meta_robots">Robots: </label>
-                                <select name="meta_robots" id="" class="form-control">
-                                    <option value="INDEX, FOLLOW">Index and follow (Recomended)</option>
-                                    <option value="NOINDEX, FOLLOW">No Index, follow</option>
-                                    <option value="INDEX, NOFOLLOW">Index, No Follow</option>
-                                    <option value="NOINDEX, NOFOLLOW">No Index, No Follow</option>
-                                </select>
+                                
                             </div><!-- /.box-body -->
                             <div class="box-footer">
-                                <button type="submit" class="btn btn-primary">Save</button>
+                                <a href="/admin/blog/create" class="btn btn-primary">Create New</a>
                             </div>
                         </div>
                     </div>
