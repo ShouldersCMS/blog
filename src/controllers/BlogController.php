@@ -68,7 +68,7 @@ class BlogController extends \BaseController {
 		$blog = new Blog;
 		$blog = $blog->where('slug', $slug)->first();
 		
-		return View::make('theme.page', ['post' => $blog]);
+		return View::make('theme.page', ['page' => $blog]);
 	}
 
 
