@@ -14,6 +14,7 @@ This is not production ready...so use at your own risk. This is a very early rel
 ```php
 'providers' => [
     'Shoulderscms\Blog\BlogServiceProvider',
+    'Fbf\LaravelCategories\LaravelCategoriesServiceProvider'
 ]
 ```
 * Run package migrations by running the following in terminal:

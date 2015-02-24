@@ -6,6 +6,7 @@ use Shoulderscms\Shoulderscms\Models\Meta as Meta;
 use \Redirect;
 use \Safeurl;
 use \View;
+use \Auth;
 
 class BlogController extends \BaseController {
 
@@ -50,6 +51,7 @@ class BlogController extends \BaseController {
 		$blog = new Blog;
 		$blog->title = Input::get('title');
 		$blog->content = Input::get('content');
+		$blog->user_id = Auth::id();
 		$blog->slug = Safeurl::make(Input::get('title'));
 		$blog->meta_id = $meta->id;
 		$blog->save();
@@ -63,12 +65,24 @@ class BlogController extends \BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
+	public function showIndex()
+	{
+		$blog = Blog::paginate(10);
+		return View::make('shoulderscms::clean.index', ['posts' => $blog]);
+	}
+
+	/**
+	 * Display the specified resource.
+	 *
+	 * @param  int  $id
+	 * @return Response
+	 */
 	public function show($slug)
 	{
 		$blog = new Blog;
 		$blog = $blog->where('slug', $slug)->first();
 		
-		return View::make('theme.page', ['page' => $blog]);
+		return View::make('shoulderscms::clean.post', ['post' => $blog]);
 	}
 
 
