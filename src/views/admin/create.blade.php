@@ -25,6 +25,10 @@
                                         <label for="pageTitle">Title:</label>
                                         {{ Form::text('title', null, ['class' => 'form-control', 'placeholder' => 'Title']) }}
                                     </div>
+                                    .<div class="form-group">
+                                      <label for="pageDescription">Blurb: </label>
+                                      {{ Form::textarea('description', null, ['class' => 'form-control textarea', 'rows' => 10, 'cols' => 30, 'placeholder' => 'Limit 255 characters']) }}
+                                    </div>
                                     <div class="form-group">
                                     	<label for="pageContent">Content:</label>
                                         {{ Form::textarea('content', null, ['class' => 'form-control textarea', 'rows' => 10, 'cols' => 30]) }}

@@ -17,8 +17,7 @@ class BlogController extends \BaseController {
 	 */
 	public function index()
 	{
-		$posts = new Blog;
-		$posts = $posts::paginate(15);
+		$posts = Blog::latest()->paginate(15);
 		return View::make('blog::admin.index', ['posts' => $posts]);
 	}
 
@@ -52,6 +51,7 @@ class BlogController extends \BaseController {
 		$blog->title = Input::get('title');
 		$blog->content = Input::get('content');
 		$blog->user_id = Auth::id();
+		$blog->description = Input::get('description');
 		$blog->slug = Safeurl::make(Input::get('title'));
 		$blog->meta_id = $meta->id;
 		$blog->save();
@@ -67,7 +67,7 @@ class BlogController extends \BaseController {
 	 */
 	public function showIndex()
 	{
-		$blog = Blog::paginate(10);
+		$blog = Blog::latest()->paginate(10);
 		return View::make('shoulderscms::clean.index', ['posts' => $blog]);
 	}
 
@@ -99,7 +99,6 @@ class BlogController extends \BaseController {
 		$meta = new Meta;
 		$meta = $meta->findOrFail($blog->meta_id);
 		$blog = array_merge($meta->toArray(), $blog->toArray());
-		
 		return View::make('blog::admin.create', ['post' => $blog]);
 	}
 
@@ -116,6 +115,7 @@ class BlogController extends \BaseController {
 		$blog = $blog->findOrFail($id);
 		$blog->title = Input::get('title');
 		$blog->content = Input::get('content');
+		$blog->description = Input::get('description');
 		$blog->slug = Safeurl::make(Input::get('title'));
 		$blog->save();
 
