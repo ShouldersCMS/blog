@@ -41,7 +41,7 @@ class BlogController extends \BaseController {
 	 * @return Response
 	 */
 	public function store()
-	{	
+	{
 		$meta = new Meta;
 		$meta->meta_robots = Input::get('meta_robots');
 		$meta->meta_description = Input::get('meta_description');
@@ -81,7 +81,7 @@ class BlogController extends \BaseController {
 	{
 		$blog = new Blog;
 		$blog = $blog->where('slug', $slug)->first();
-		
+
 		return View::make('shoulderscms::clean.post', ['post' => $blog]);
 	}
 
@@ -98,7 +98,8 @@ class BlogController extends \BaseController {
 		$blog = $blog->findOrFail($id);
 		$meta = new Meta;
 		$meta = $meta->findOrFail($blog->meta_id);
-		$blog = array_merge($blog->toArray(), $meta->toArray());
+		$blog = array_merge($meta->toArray(), $blog->toArray());
+		
 		return View::make('blog::admin.create', ['post' => $blog]);
 	}
 

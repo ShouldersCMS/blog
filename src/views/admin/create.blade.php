@@ -7,7 +7,7 @@
     @else
         {{ Form::model($post, array('url' => 'admin/blog')) }}
     @endif
-    
+
 	 <!-- Main content -->
             <section class="content">
                 <!-- Small boxes (Stat box) -->
@@ -54,7 +54,7 @@
                             </div><!-- /.box-header -->
                             <div class="box-body">
                             	<label for="meta_robots">Robots: </label>
-                                
+
                                 {{ Form::select('meta_robots', array(
                                     'INDEX, FOLLOW' => 'Index and follow (Recomended)',
                                     'NOINDEX, FOLLOW' => 'No Index, follow',
@@ -78,6 +78,6 @@
                 //bootstrap WYSIHTML5 - text editor
                 $(".textarea").wysihtml5();
             });
-        
+
             </script>
 @stop
