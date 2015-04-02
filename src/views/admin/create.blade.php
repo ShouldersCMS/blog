@@ -25,13 +25,13 @@
                                         <label for="pageTitle">Title:</label>
                                         {{ Form::text('title', null, ['class' => 'form-control', 'placeholder' => 'Title']) }}
                                     </div>
-                                    .<div class="form-group">
+                                    <div class="form-group">
                                       <label for="pageDescription">Blurb: </label>
-                                      {{ Form::textarea('description', null, ['class' => 'form-control textarea', 'rows' => 10, 'cols' => 30, 'placeholder' => 'Limit 255 characters']) }}
+                                      {{ Form::textarea('description', null, ['class' => 'form-control textarea summernote', 'rows' => 10, 'cols' => 30, 'placeholder' => 'Limit 255 characters']) }}
                                     </div>
                                     <div class="form-group">
                                     	<label for="pageContent">Content:</label>
-                                        {{ Form::textarea('content', null, ['class' => 'form-control textarea', 'rows' => 10, 'cols' => 30]) }}
+                                        {{ Form::textarea('content', null, ['class' => 'form-control textarea summernote', 'rows' => 10, 'cols' => 30]) }}
                                     </div>
                                 </div><!-- /.tab-pane -->
                                 <div class="tab-pane" id="tab_2">
@@ -76,12 +76,22 @@
 
             {{ Form::close() }}
 
-            <script type="text/javascript">
 
-            $(function() {
-                //bootstrap WYSIHTML5 - text editor
-                $(".textarea").wysihtml5();
+@stop
+
+@section('footerjs')
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('.summernote').summernote({
+              toolbar: [
+                ['style', ['style']],
+                ['style', ['bold', 'italic', 'underline', 'clear']],
+                ['font', ['strikethrough']],
+                ['para', ['ul', 'ol', 'paragraph']],
+                ['insert', ['link', 'picture']],
+                ['view', ['codeview']]
+              ]
             });
-
-            </script>
+        });
+    </script>
 @stop

@@ -1,7 +1,7 @@
 @extends('shoulderscms::AdminLTE.layouts.master')
 
 @section('main')
-    
+
      <!-- Main content -->
             <section class="content">
 
@@ -52,7 +52,7 @@
                                 <h3 class="box-title">Settings</h3>
                             </div><!-- /.box-header -->
                             <div class="box-body">
-                                
+
                             </div><!-- /.box-body -->
                             <div class="box-footer">
                                 <a href="/admin/blog/create" class="btn btn-primary">Create New</a>
@@ -61,15 +61,4 @@
                     </div>
                 </div>
             </section>
-
-            
-
-            <script type="text/javascript">
-
-            $(function() {
-                //bootstrap WYSIHTML5 - text editor
-                $(".textarea").wysihtml5();
-            });
-        
-            </script>
 @stop
