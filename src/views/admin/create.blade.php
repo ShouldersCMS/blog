@@ -1,5 +1,10 @@
 @extends('shoulderscms::AdminLTE.layouts.master')
 
+@section('headercss')
+    <!-- Summernote -->
+    <link href="{{ asset('packages/shoulderscms/shoulderscms/css/summernote/summernote.css') }}" rel="stylesheet" type="text/css" />
+@stop
+
 @section('main')
     @if (!empty($post))
 	   {{ Form::model($post, array('url' => ['admin/blog', $post['id']], 'method' => 'put')) }}
@@ -80,6 +85,9 @@
 @stop
 
 @section('footerjs')
+    <!-- Summernote -->
+    <script src="{{ asset('packages/shoulderscms/shoulderscms/js/plugins/summernote/summernote.min.js') }}" type="text/javascript"></script>
+
     <script type="text/javascript">
         $(document).ready(function() {
             $('.summernote').summernote({
